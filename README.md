@@ -57,12 +57,10 @@ RAM: 32 GB 1800 MHz DDR4
 ### Extended data figure 1
 | Figure  | Scripts | Description |
 | :------------- | :------------- | :------------- |
-| 5a and 5b | `Figure5\muscle_4hne\script\export_fig5a.ijm` `Figure5\muscle_4hne\script\export_fig5b.ijm` | export microscopic images |
-| 5c and 5d | `Figure5\tunel_4hne\script\export_fig.ijm` | export microscopic images |
-| 5e | `Figure5\wave_in_limb\script\processing.ijm` `Figure5\wave_in_limb\script\outline_limb.m` `Figure5\wave_in_limb\script\outline_wave.m` | export microscopic images and plot outlines |
-| 5f | `Figure5\death_area\script\summarize_area.m` | plot the ratio of death area to limb area under different conditions |
-| 5g to 5i | `Figure5\photoinduction\script\export_v2.ijm` `Figure5\photoinduction\script\plot_ROS_quantification_v2.m` | export microscopic images and plot quantification result |
-| 5j | `Figure5\muscle_fiber\script\generate_maxprojection_subset_fiber.ijm` `Figure5\muscle_fiber\script\fiber_orientation_v2.ijm` | export fiber images with colormap representing fiber orientation|
+| 1a, 1d, 1f, 1h | `EDF1\sytox\script\export.ijm` `EDF1\rpe_erastin\scriptexport_for_outline.ijm` `EDF1\rpe_rsl3\script\export_fig.ijm` `EDF1\rpe_staurosporine\scriptexport_for_outline.ijm`| export microscopic images |
+| 1b | `EDF1\sytox\script\summarize_tracking.m` | plot the nuclear dye and sytox dynamics |
+| 1c | `EDF1\illustration\plot_examples.m` | plot contours, vector field and polar histogram to show how entropy is computed from a vector field |
+| 1e, 1g, 1i to 1m | `EDF1\others\export_vector_field_polarhist.m` `EDF1\others\export_figure_entropy.m` | plot vector fields, polar histograms, and the summary of entropy |
 
 ### Extended data figure 2
 | Figure  | Scripts | Description |
