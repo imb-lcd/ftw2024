@@ -33,7 +33,7 @@ RAM: 32 GB 1800 MHz DDR4
 | 3c and d | `Figure3\script\export_DFO.ijm` `Figure3\script\outline_DFO.m` `Figure3\script\make_kymograph_DFO.m`| export microscopic images and plot the outlines and kymograph of ferroptotic trigger wave of DFO |
 | 3e and f | `Figure3\script\export_FAC.ijm` `Figure3\script\outline_FAC.m` `Figure3\script\make_kymograph_FAC.m` | export microscopic images and plot the outlines and kymograph of ferroptotic trigger wave of FC |
 | 3g, 3h and 3i | `Figure3\script\make_kymograph.m` | plot the kymograph of ferroptotic trigger wave under the chemical perturbations (GKY, LY294002, and Dasatinib) |
-| 3j to 3n | `Figure3\script\summarize_DFO_96.m` `Figure3\script\summarize_FAC_96.m` `Figure3\script\summarize_GKT_96.m` `Figure3\script\summarize_LY294002_96.m` `Figure3\script\summarize_Dasatinib_96.m`  | the dose-response curves of 5 chemical perturbations |
+| 3j to 3n | `Figure3\script\summarize_DFO_96.m` `Figure3\script\summarize_FAC_96.m` `Figure3\script\summarize_GKT_96.m` `Figure3\script\summarize_LY294002_96.m` `Figure3\script\summarize_Dasatinib_96.m`  | plot the dose-response curves of 5 chemical perturbations |
 
 ### Figure4
 | Figure  | Scripts | Description |
