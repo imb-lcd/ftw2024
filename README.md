@@ -53,3 +53,23 @@ RAM: 32 GB 1800 MHz DDR4
 | 5f | `Figure5\death_area\script\summarize_area.m` | plot the ratio of death area to limb area under different conditions |
 | 5g to 5i | `Figure5\photoinduction\script\export_v2.ijm` `Figure5\photoinduction\script\plot_ROS_quantification_v2.m` | export microscopic images and plot quantification result |
 | 5j | `Figure5\muscle_fiber\script\generate_maxprojection_subset_fiber.ijm` `Figure5\muscle_fiber\script\fiber_orientation_v2.ijm` | export fiber images with colormap representing fiber orientation|
+
+### Extended data figure 1
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 5a and 5b | `Figure5\muscle_4hne\script\export_fig5a.ijm` `Figure5\muscle_4hne\script\export_fig5b.ijm` | export microscopic images |
+| 5c and 5d | `Figure5\tunel_4hne\script\export_fig.ijm` | export microscopic images |
+| 5e | `Figure5\wave_in_limb\script\processing.ijm` `Figure5\wave_in_limb\script\outline_limb.m` `Figure5\wave_in_limb\script\outline_wave.m` | export microscopic images and plot outlines |
+| 5f | `Figure5\death_area\script\summarize_area.m` | plot the ratio of death area to limb area under different conditions |
+| 5g to 5i | `Figure5\photoinduction\script\export_v2.ijm` `Figure5\photoinduction\script\plot_ROS_quantification_v2.m` | export microscopic images and plot quantification result |
+| 5j | `Figure5\muscle_fiber\script\generate_maxprojection_subset_fiber.ijm` `Figure5\muscle_fiber\script\fiber_orientation_v2.ijm` | export fiber images with colormap representing fiber orientation|
+
+### Extended data figure 2
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 2a | `EDF2\initiation_analysis\script\mark_initiation.m` | plot the initiation sites on an image |
+| 2b | `EDF2\initiation_analysis\script\plot_initiation_heatmap.m` | plot the heatmap of number of initiations at each viewfield |
+| 2c and 2d | `EDF2\initiation_analysis\script\initiation_Poisson_dist_fitting.m` `EDF2\initiation_analysis\script\initiation_Exp_dist_fitting.m`| plot the histogram and fitted logistic distribution for number of initiations and interval between initiations |
+| 2e and 2f | `EDF2\distribution_iron_ros\distribution_iron.m` `EDF2\distribution_iron_ros\distribution_ros.m` | plot the histogram and fitted logistic distribution for iron and ROS |
+| 2g and 2h | `EDF2\optimization\organize_measurement.m` | plot number and timing of initiation under different levels of FBS and transferrin |
+
