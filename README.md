@@ -46,3 +46,12 @@ Please see `readme.txt` inside the folder for detailed instructions to reproduce
 | 3e and f | `Figure3\script\export_FAC.ijm` `Figure3\script\outline_FAC.m` `Figure3\script\make_kymograph_FAC.m` | export microscopic images and plot the outlines and kymograph of ferroptotic trigger wave of FC |
 | 3g, 3h and 3i | `Figure3\script\make_kymograph.m` | plot the kymograph of ferroptotic trigger wave under the chemical perturbations (GKY, LY294002, and Dasatinib) |
 | 3j to 3n | `Figure3\script\summarize_DFO_96.m` `Figure3\script\summarize_FAC_96.m` `Figure3\script\summarize_GKT_96.m` `Figure3\script\summarize_LY294002_96.m` `Figure3\script\summarize_Dasatinib_96.m`  | the dose-response curves of 5 chemical perturbations |
+
+### Figure4
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 4a | `Figure4\priming\script\bifurcation_diagram.m`| Bifurcation diagram |
+| 4b | `Figure4\priming\script\export_ros_steadystate.ijm`| export microscopic images (ROS) after photoinduction |
+| 4c | `Figure4\priming\script\quantify_ros_staedystate.m`| plot ROS steady state before and after photoinduction |
+| 4d | `Figure4\erastin6\script\sim_trigger_waves.m` `Figure4\erastin6\script\export.ijm` `Figure4\erastin6\script\outline.m` | plot simulated trigger waves, export microscopic images and plot the outlines |
+| 4e to 4g | `Figure4\erastin6\script\summarize_speed.m` `Figure4\erastin6\script\measure_wavefront_width_amp.m` | plot wave speed, wavefront width, and ROS amplitude under different erastin levels|
