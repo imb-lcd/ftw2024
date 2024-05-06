@@ -54,4 +54,14 @@ Please see `readme.txt` inside the folder for detailed instructions to reproduce
 | 4b | `Figure4\priming\script\export_ros_steadystate.ijm`| export microscopic images (ROS) after photoinduction |
 | 4c | `Figure4\priming\script\quantify_ros_staedystate.m`| plot ROS steady state before and after photoinduction |
 | 4d | `Figure4\erastin6\script\sim_trigger_waves.m` `Figure4\erastin6\script\export.ijm` `Figure4\erastin6\script\outline.m` | plot simulated trigger waves, export microscopic images and plot the outlines |
-| 4e to 4g | `Figure4\erastin6\script\summarize_speed.m` `Figure4\erastin6\script\measure_wavefront_width_amp.m` | plot wave speed, wavefront width, and ROS amplitude under different erastin levels|
+| 4e to 4g | `Figure4\erastin6\script\summarize_speed.m` `Figure4\erastin6\script\measure_wavefront_width_amp.m` | plot wave speed, wavefront width, and ROS amplitude under different erastin levels |
+
+### Figure5
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 5a and 5b | `Figure5\muscle_4hne\script\export_fig5a.ijm` `Figure5\muscle_4hne\script\export_fig5b.ijm` | export microscopic images |
+| 5c and 5d | `Figure5\tunel_4hne\script\export_fig.ijm` | export microscopic images |
+| 5e | `Figure5\wave_in_limb\script\processing.ijm` `Figure5\wave_in_limb\script\outline_limb.m` `Figure5\wave_in_limb\script\outline_wave.m` | export microscopic images and plot outlines |
+| 5f | `Figure5\death_area\script\summarize_area.m` | plot the ratio of death area to limb area under different conditions |
+| 5g to 5i | `Figure5\photoinduction\script\export_v2.ijm` `Figure5\photoinduction\script\plot_ROS_quantification_v2.m` | export microscopic images and plot quantification result |
+| 5j | `Figure5\muscle_fiber\script\generate_maxprojection_subset_fiber.ijm` `Figure5\muscle_fiber\script\fiber_orientation_v2.ijm` | export fiber images with colormap representing fiber orientation|

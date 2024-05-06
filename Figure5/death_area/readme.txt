@@ -1,0 +1,1 @@
+1. run `summarize_area.m` to get figure 5f
