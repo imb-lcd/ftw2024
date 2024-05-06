@@ -53,3 +53,21 @@ RAM: 32 GB 1800 MHz DDR4
 | 5f | `Figure5\death_area\script\summarize_area.m` | plot the ratio of death area to limb area under different conditions |
 | 5g to 5i | `Figure5\photoinduction\script\export_v2.ijm` `Figure5\photoinduction\script\plot_ROS_quantification_v2.m` | export microscopic images and plot quantification result |
 | 5j | `Figure5\muscle_fiber\script\generate_maxprojection_subset_fiber.ijm` `Figure5\muscle_fiber\script\fiber_orientation_v2.ijm` | export fiber images with colormap representing fiber orientation|
+
+### Extended data figure 1
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 1a, 1d, 1f, 1h | `EDF1\sytox\script\export.ijm` `EDF1\rpe_erastin\scriptexport_for_outline.ijm` `EDF1\rpe_rsl3\script\export_fig.ijm` `EDF1\rpe_staurosporine\scriptexport_for_outline.ijm`| export microscopic images |
+| 1b | `EDF1\sytox\script\summarize_tracking.m` | plot the nuclear dye and sytox dynamics |
+| 1c | `EDF1\illustration\plot_examples.m` | plot contours, vector field and polar histogram to show how entropy is computed from a vector field |
+| 1e, 1g, 1i to 1m | `EDF1\others\export_vector_field_polarhist.m` `EDF1\others\export_figure_entropy.m` | plot vector fields, polar histograms, and the summary of entropy |
+
+### Extended data figure 2
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 2a | `EDF2\initiation_analysis\script\mark_initiation.m` | plot the initiation sites on an image |
+| 2b | `EDF2\initiation_analysis\script\plot_initiation_heatmap.m` | plot the heatmap of number of initiations at each viewfield |
+| 2c and 2d | `EDF2\initiation_analysis\script\initiation_Poisson_dist_fitting.m` `EDF2\initiation_analysis\script\initiation_Exp_dist_fitting.m`| plot the histogram and fitted logistic distribution for number of initiations and interval between initiations |
+| 2e and 2f | `EDF2\distribution_iron_ros\distribution_iron.m` `EDF2\distribution_iron_ros\distribution_ros.m` | plot the histogram and fitted logistic distribution for iron and ROS |
+| 2g and 2h | `EDF2\optimization\organize_measurement.m` | plot number and timing of initiation under different levels of FBS and transferrin |
+
