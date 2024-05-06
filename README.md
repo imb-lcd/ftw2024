@@ -8,18 +8,6 @@ CPU: AMD Ryzen 9 5900X
 RAM: 32 GB 1800 MHz DDR4
 
 ## Folder description
-| Figure | Folder | Description |
-| :------------- | :------------- | :------------- |
-| Figure 1a to 1e | `Figure1\long_distance\` | Generate microscopic images and plot outlines, kymograph, intensity profile, and comparison between experimental data and theoretical diffusion. |
-| Figure 1f to 1i | `Figure1\lipid_dye\` | Generate microscopic images and plot outlines, kymograph, and intensity profile.  |
-| Figure 2 | `Figure2\` | Generate microscopic images, plot intensity profile, and fit a logistic curve. |
-| Figure 3 | `Figure3\` | Generate microscopic images, plot outlines and kymograph, and fit a dose-response curve. |
-
-Please see `readme.txt` inside the folder for detailed instructions to reproduce the figures.
-
-| Folder  | Scripts | Description |
-| :------------- | :------------- | :------------- |
-| Figure1 | 1.`\long_distance\script\export.ijm` 2.`\long_distance\script\outline.m` 3.`\long_distance\script\get_slices.m` 4.`\long_distance\script\make_kymograph.m` 5.`\long_distance\script\diffusion_plot.m` 6.`\lipid_dye\script\outline_lipid.m` 7.`\lipid_dye\script\plot_profile.m` 8.`\lipid_dye\script\outline_cy5.m` 9.`\lipid_dye\script\get_slices.m` 10.`\lipid_dye\script\make_kymograph.m`| 1.export microscopic images; 2.plot the outlines of ferroptotic trigger wave; 3.plot ferroptotic trigger wave with an ROI; 4.plot the kymograph of ferroptotic trigger wave; 5.plot the data of ferroptotic trigger wave with theoretical diffusion; 6.plot the outlines of ferroptotic trigger wave (lipid dye); 7.plot profile of ferroptotic trigger wave (cell death and lipid); 8.plot the outlines of ferroptotic trigger wave (cell death); 9.plot ferroptotic trigger wave with an ROI (cell death and lipid); 10.plot the kymograph of ferroptotic trigger wave| 
 
 ### Figure1
 | Figure  | Scripts | Description |
