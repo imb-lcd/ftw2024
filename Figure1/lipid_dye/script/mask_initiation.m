@@ -1,7 +1,20 @@
+%     Copyright (C) 2024  Chia-Chou Wu
+% 
+%     This program is free software: you can redistribute it and/or modify
+%     it under the terms of the GNU General Public License as published by
+%     the Free Software Foundation, either version 3 of the License, or
+%     (at your option) any later version.
+% 
+%     This program is distributed in the hope that it will be useful,
+%     but WITHOUT ANY WARRANTY; without even the implied warranty of
+%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%     GNU General Public License for more details.
+% 
+%     You should have received a copy of the GNU General Public License
+%     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 %% initialize environment
-clc
-clear
-close all
+clc; clear; close all
 
 pos = "s"+[41,1,5,12,15,16,29,36]; % well to be processed
 
@@ -71,19 +84,7 @@ for i = 1:length(pos)
 
     % save mask into setting
     initiation.mask = maskDS;
-    if isSave
-        save(oname,"initiation")
-        exportgraphics(gcf,"..\img\initiation_"+pos(i)+".jpg","Resolution",300)
-    end
-    
-    close all
-end
+    % save(oname,"initiation")
+    % exportgraphics(gcf,"..\img\initiation_"+pos(i)+".jpg","Resolution",300)
 
-%%
-% % pos = "s"+[41,1,5,12,15,16,29,36]; % well to process
-% clear
-% load('..\data\setting_s36.mat')
-% new = initiation;
-% load('..\data\v1\setting_s36.mat')
-% old = initiation;
-% imshowpair(old.mask,new.mask)
+end
