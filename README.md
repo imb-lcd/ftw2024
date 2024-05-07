@@ -91,3 +91,8 @@ RAM: 32 GB 1800 MHz DDR4
 | 5a | `EDF5\gap\script\export.ijm` `EDF5\gap\script\plot_profile.m` | export microscopic image and plot profiles |
 | 5b and 5c | `EDF5\conditioned_media\script\export_fig.ijm` `EDF5\conditioned_media\script\quantify_death_percentage.m` | export microscopic image and plot death percentage |
 
+### Extended data figure 6
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 6b | `EDF6\iron\make_kymograph.m` | plot the kymograph |
+| 6c and 6d | `EDF6\a549_u2os\script\export_v2.ijm` `EDF6\a549_u2os\script\outline_a549.m` `EDF6\a549_u2os\script\outline_a549.m` | export microscopic image and plot outline |
