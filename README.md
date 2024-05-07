@@ -121,3 +121,9 @@ RAM: 32 GB 1800 MHz DDR4
 | 10b and 10c | `EDF10\figS10bc.m` | plot the simulated wave in the view of 2D and cross-section |
 | 10d and 10e | `EDF10\figS10de.m` | plot the measured speed, wavefront width, and amplitude |
 
+### Extended data figure 11
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 11a | `EDF11\light_intensity\plot_result.m` | plot the ROS steady states |
+| 11b to 11e | `EDF11\iron\plot_GSH.m` `EDF11\iron\quantify_iron.m` `EDF11\iron\plot_NOX_activity.m` `EDF11\iron\quantify_ros_before_photoinduction.m` `EDF11\iron\export_iron.ijm` | plot the measured GSH, iron, NOX activity, and ROS and export microscopic images |
+
