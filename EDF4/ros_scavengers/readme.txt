@@ -1,0 +1,1 @@
+1. run `make_kymograph.m` to get the kymograph in the figure 4e
