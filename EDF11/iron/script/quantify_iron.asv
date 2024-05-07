@@ -1,0 +1,204 @@
+%     Copyright (C) 2024  Chia-Chou Wu
+%
+%     This program is free software: you can redistribute it and/or modify
+%     it under the terms of the GNU General Public License as published by
+%     the Free Software Foundation, either version 3 of the License, or
+%     (at your option) any later version.
+%
+%     This program is distributed in the hope that it will be useful,
+%     but WITHOUT ANY WARRANTY; without even the implied warranty of
+%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%     GNU General Public License for more details.
+%
+%     You should have received a copy of the GNU General Public License
+%     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+%% initialize environment
+clc; clear; close all
+
+% %% set experimental design
+% % erastin concentration
+% conc_era =  [10 5 2.5 1.25 0.6 0.3 0.15 0];
+% lv_era = repmat((1:8),5,1);
+% era = conc_era(lv_era);
+% era = era(:);
+% 
+% % platemap
+% well = reshape(1:40,8,[])';
+% well(2,:) = fliplr(well(2,:));
+% well(4,:) = fliplr(well(4,:));
+% well = well(:);
+% 
+% % tiles, each well has 4 tiles
+% pos = 1:160;
+% pos = reshape(pos,4,[]);
+% pos = pos';
+% pos = pos(well,:);
+% 
+% % mark the tiles where alignment fails
+% isWrong = ismember(pos,[2,22,25,28,29,30,...
+%     31,34,39,42,50,...
+%     65,73,74,77,82,87,...
+%     95,105,106,109,110,...
+%     112,122,132,134,137,142,145,152,155]);
+% heatmap(uint8(~isWrong),'YDisplayLabels',string(well),...
+%     'Title','Available tiles','XLabel','Tile','YLabel','Well');
+% colormap gray
+% colorbar off
+% set(gcf,'position',[126   126   280   850])
+% 
+% %% import ROI
+% % ReadImageJROI.m imports RoiSet_nucleus.zip and save it as RoiSet_nucleus.mat
+% load("..\data\iron\RoiSet_nucleus.mat") 
+% 
+% % Construct a table to keep the information of segmentation
+% site = nan(length(sROI),1);
+% bd = cell(length(sROI),1);
+% for i = 1:length(sROI)
+%     site(i) = sROI{i}.nPosition;
+%     bd{i} = sROI{i}.mnCoordinates; %[x y];
+% end
+% tbl_cell = table(site,bd);
+% 
+% % map well and erastion information to the table
+% lv_era = nan(height(tbl_cell),1);
+% lv_well = lv_era;
+% for i = 1:length(lv_era)
+%     [r,~,~] = find(pos==tbl_cell.site(i));
+%     lv_era(i) = era(r);
+%     lv_well(i) = well(r);
+% end
+% tbl_cell.era = lv_era;
+% tbl_cell.well = lv_well;
+% 
+% %% load iron images
+% fname = "..\img\iron\iron_bgsub50.tif";
+% info = imfinfo(fname);
+% img_iron = arrayfun(@(i)imread(fname,i,'Info',info),1:length(info),...
+%     'UniformOutput',0);
+% 
+% %% quantification
+% mean_intensity = nan(height(tbl_cell),1);
+% parfor i = 1:height(tbl_cell)
+%     x = tbl_cell.bd{i}(:,1); x = [x;x(1)];
+%     y = tbl_cell.bd{i}(:,2); y = [y;y(1)];
+%     BW = poly2mask(x,y,size(img_iron{1},1),size(img_iron{1},2));
+%     mask_nuc = imerode(BW,strel('disk',2,8));
+%     mask_cyto = imdilate(BW,strel('disk',7,8));
+% %     px = img_iron{tbl_cell.site(i)}(mask_cyto==1&mask_nuc==0);
+%     px = img_iron{tbl_cell.site(i)}(mask_cyto==1);
+%     mean_intensity(i) = mean(px);
+% end
+% tbl_cell.mean_intensity = mean_intensity;
+
+%% organize result
+clear;load("..\data\quantification_iron.mat")
+tbl = tbl_cell(ismember(tbl_cell.site,[131 60 11 51 83 86 26 157]),:);
+tbl = sortrows(tbl,"era");
+
+[G,ID] = findgroups(tbl.era);
+tbl.x = G;
+y = false(height(tbl),1);
+for i = 1:length(ID)
+    tmp = tbl.mean_intensity(G==i);
+    y(G==i) = isoutlier(tmp);
+end
+tbl(y==1,:) = [];
+
+% vCurve
+vCurve = cell(length(ID),1);
+for i = 1:length(ID)
+    [f,xi] = ksdensity(tbl.mean_intensity(tbl.x==i));
+    vCurve{i,1} = [f',xi'];
+end
+
+%% visualize result
+% close all
+% figure;
+% swarmchart(tbl.x,tbl.mean_intensity,30,[59, 73, 146]/255,'.','XJitterWidth',0.65)
+% hold on
+% h = boxplot(tbl.mean_intensity,tbl.x,'BoxStyle','outline','Colors','k','Widths',0.25, 'symbol', '');
+% line = findobj(gca, 'type', 'line', 'Tag', 'Median');set(line, 'Color', 'k','linewidth',3); % Adjusting the median line
+% up_adj = findobj(gca,'type', 'line', 'tag', 'Upper Whisker'); set(up_adj, 'Color', 'k','linewidth',1,'LineStyle','-');% Setting the upper whiskers
+% up = findobj(gca,'type', 'line', 'tag', 'Upper Adjacent Value'); set(up, 'Color', 'none','linewidth',1);%Setting the line betwwen percentile 75 and 95
+% low_adj = findobj(gca,'type', 'line', 'tag', 'Lower Whisker'); set(low_adj, 'Color', 'k','linewidth',1,'LineStyle','-');% Setting the upper whiskers
+% low = findobj(gca,'type', 'line', 'tag', 'Lower Adjacent Value'); set(low, 'Color', 'none','linewidth',1);%Setting the line betwwen percentile 75 and 95
+% for i=5:7:length(h(:))
+% patch(get(h(i),'XData'),get(h(i),'YData'),'y','FaceAlpha',1,'FaceColor',[1 1 1],'LineStyle','-');
+% end
+% 
+% hold off
+% set(gca,'fontsize',16,'XTickLabel',string(unique(tbl.era)),...
+%     'box','off','LineWidth',1,'XTickLabelRotation',0)
+% ax = gca;
+% ax.Children = ax.Children([9 1:8 10]);
+% xlim([0.5 8.5])
+% xlabel('Erastin (µM)')
+% ylabel('Fe^{2+} (A.U.)')
+% 
+% tbl_source = table(tbl.x,tbl.mean_intensity,...
+%     'VariableNames',["Erastin (µM)","Fe2+ (AU)"]);
+% tmp = unique(tbl.era);
+% tbl_source.("Erastin (µM)") = tmp(tbl_source.("Erastin (µM)"))
+% % writetable(tbl_source,"../../../ftw_paper_figures_v2/source_data/figS17.xlsx","Sheet","b")
+% tblG = groupsummary(tbl_source,"Erastin (µM)","mean","Fe2+ (AU)")
+% % exportgraphics(gcf,"..\fig\priming_iron.pdf","ContentType","vector")
+
+%% export data for R usage
+% tbl_R = tbl(:,[3 5 6]);
+% writetable(tbl_R,'..\data\iron\iron_dose_response.csv')
+
+%% statistical test
+close all
+figure
+[p,~,stats] = kruskalwallis(tbl.mean_intensity,tbl.x,'off');
+[c] = multcompare(stats);
+
+PValues = nan(size(c,1),1);
+for i = 1:length(PValues)
+    x = tbl.mean_intensity(tbl.x==c(i,1));
+    y = tbl.mean_intensity(tbl.x==c(i,2));
+    PValues(i,1) = ranksum(x,y);
+end
+FDR = mafdr(PValues,'BHFDR',1);
+c(:,7) = FDR;
+
+effect = "mediandiff"
+Effect = cell(size(c,1),1);
+x = tbl.x;
+w = tbl.mean_intensity;
+for i = 1:size(c,1)
+    Effect{i} = meanEffectSize(w(x==c(i,2)),w(x==c(i,1)),...
+        Effect=effect,ConfidenceIntervalType="bootstrap");
+    c(i,8) = Effect{i}.ConfidenceIntervals(1)*...
+        Effect{i}.ConfidenceIntervals(2)>0;
+    c(i,9) = Effect{i}.Effect;
+end
+
+figure
+tmp = sparse(c(:,1),c(:,2),c(:,7),nnz(unique(x)),nnz(unique(x)));
+heatmap(full(tmp+tmp'),'XDisplayLabels',string([0 0.15 0.3 0.6 1.25 2.5 5 10]),...
+    'YDisplayLabels',string([0 0.15 0.3 0.6 1.25 2.5 5 10]),'title','Mann–Whitney U test, FDR','FontSize',16)
+
+%%
+figure
+hold on
+for i = 1:size(vCurve,1)
+    x = [-0.325.*normalize(vCurve{i,1}(:,1),'range')+i;flipud(0.325.*normalize(vCurve{i,1}(:,1),'range')+i)];
+    yy = [vCurve{i,1}(:,2);flipud(vCurve{i,1}(:,2))];
+    pgon = polyshape(x,yy);
+    plot(pgon,'EdgeColor','none','FaceColor',lines(1))
+end
+hold off
+
+hold on
+tblG = groupsummary(tbl.mean_intensity,tbl.x,{'mean' 'std'});
+errorbar(1:8,tblG(:,1),tblG(:,2),'o','color','k','LineWidth',1,'MarkerFaceColor','k')
+hold off
+
+xlabel("Erastin (µM)")
+ylabel('Fe^{2+} (A.U.)')
+set(gca,'Layer','top','LineWidth',1,'FontSize',16,'tickdir','out',...
+    'XTick',1:8,'XTickLabel',string(fliplr([10 5 2.5 1.25 0.6 0.3 0.15 0])),'xlim',[0.5 8.5])
+box off
+ylim([-10 160])
