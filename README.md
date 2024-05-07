@@ -83,7 +83,7 @@ RAM: 32 GB 1800 MHz DDR4
 | :------------- | :------------- | :------------- |
 | 4a | `EDF4\cellROX\script\export.ijm` `EDF4\cellROX\script\outline.m` `EDF4\cellROX\script\plot_profile.m` | export microscopic image, plot outlines, and plot profiles |
 | 4d | `EDF4\cellROX\script\make_kymograph.m` | plot the kymograph |
-| 4e | `EDF4\ros_scavengers\script\make_kymograph.m | plot the kymographs |
+| 4e | `EDF4\ros_scavengers\script\make_kymograph.m` | plot the kymographs |
 
 ### Extended data figure 5
 | Figure  | Scripts | Description |
