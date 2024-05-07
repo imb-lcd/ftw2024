@@ -96,3 +96,10 @@ RAM: 32 GB 1800 MHz DDR4
 | :------------- | :------------- | :------------- |
 | 6b | `EDF6\iron\make_kymograph.m` | plot the kymograph |
 | 6c and 6d | `EDF6\a549_u2os\script\export_v2.ijm` `EDF6\a549_u2os\script\outline_a549.m` `EDF6\a549_u2os\script\outline_a549.m` | export microscopic image and plot outline |
+
+### Extended data figure 7
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 7a | `EDF7\plot_NOX_isoform.m` | plot the mRNA abundance of NOX isoform |
+| 7b | `EDF7\antioxidant.m` | plot the antiocidant activity |
+
