@@ -71,3 +71,11 @@ RAM: 32 GB 1800 MHz DDR4
 | 2e and 2f | `EDF2\distribution_iron_ros\distribution_iron.m` `EDF2\distribution_iron_ros\distribution_ros.m` | plot the histogram and fitted logistic distribution for iron and ROS |
 | 2g and 2h | `EDF2\optimization\organize_measurement.m` | plot number and timing of initiation under different levels of FBS and transferrin |
 
+### Extended data figure 3
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 3b | `EDF2\initiation_analysis\script\mark_initiation.m` | export microscopic image |
+| 3c | `EDF3\h2o2_induction\script\export.ijm` `EDF3\h2o2_induction\script\outline_v2.m` | export microscopic image and plot outlines |
+| 3d | `EDF3\death_inhibitors\script\export_images_around_induction.ijm` `EDF3\death_inhibitors\script\export_dfo_fer1_lip1.ijm` | export micrscopic images around induction |
+| 3e to 3j | `EDF3\wavelength_exposure\export_images_around_induction.ijm` `EDF3\wavelength_exposure\summarize_intensity.m` `EDF3\wavelength_exposure\summarize_wavelength.m` | export micrscopic images around induction, plot ROS dynamics and speed measurement under different wavelength and exposure time of light |
+| 3k and 3l | `EDF3\death_inhibitors\script\make_kymograph.m` `EDF3\death_inhibitors\script\plot_kymograph_fer1.m` `EDF3\death_inhibitors\script\summarize_speed.m` | plot kymograph and speed measurement under different death inhibitors |
