@@ -1,0 +1,12 @@
+path,fname,sname,pxSize,zStrt,zStop,angle,x,y,w,h,c1,c2,c3
+/raw,2023-07-29-40x-4HNE muscle longitudinal-7_8-07.czi,first_image,0.173,NaN,NaN,NaN,NaN,NaN,NaN,NaN,4HNE,dead_muscle,DIC
+/img/stitching,2023-10-27-4HNE-40xobj-limbC-L-7_8d-02-Stitching-z61c1.czi,limbC,0.173,NaN,NaN,NaN,NaN,NaN,NaN,NaN,,,
+/img/stitching,2023-10-27-4HNE-40xobj-limbC-L-7_8d-2nd-01-Stitching-z50c1.czi,limbC_2nd,0.173,23,79,NaN,900,1224,4746,1506,4HNE,dead_muscle,DIC
+/img/stitching,2023-10-27-4HNE-40xobj-limbD-L-7_8d-01-Stitching-z58c1.czi,limbD,0.173,50,78,4.7,606,828,4746,1506,4HNE,dead_muscle,DIC
+/img/stitching,2023-10-27-4HNE-40xobj-limbD-L-7_8d-2nd-01-Stitching-z20c1.czi,limbD_2nd,0.173,NaN,NaN,NaN,NaN,NaN,NaN,NaN,4HNE,dead_muscle,DIC
+/img/stitching,2023-12-13-muscle-4hne-tunel-40x-limbC-01-Create Image Subset-02-Stitching-04.czi,limbC_new,0.173,NaN,NaN,NaN,0,666,4644,1752,4HNE,TUNEL,dead_muscle
+/img/stitching,2023-12-13-muscle-caspase-tunel-40x-01-Create Image Subset-41-Stitching-44.czi,limb1,0.173,22,53,NaN,0,3320,5776,1512,caspase,TUNEL,dead_muscle
+/img/stitching,2023-12-13-muscle-caspase-tunel-40x-limb DL-02-Create Image Subset-37-Stitching-40.czi,limbD_new,0.173,63,91,5.4,510,840,4746,1506,4HNE,TUNEL,dead_muscle
+/img/stitching,2023-12-13-muscle-caspase-tunel-40x-limb3-01-Create Image Subset-45-Stitching-47.czi,limb3,0.23,1,66,10.6,459,1068,3708,978,caspase,TUNEL,dead_muscle
+/img/stitching,2023-12-13-muscle-caspase-tunel-40x-limb5-01-Create Image Subset-01-Stitching-03.czi,limb5,0.23,45,67,17.2,498,1074,3187,816,caspase,TUNEL,dead_muscle
+/img/stitching,2023-12-22-muscle-caspase-tunel-40x-limb CL-02-Stitching-04.czi,limbC_new2,0.173,NaN,NaN,-17,2536,3552,2800,848,4HNE,TUNEL,dead_muscle
