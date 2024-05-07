@@ -103,3 +103,8 @@ RAM: 32 GB 1800 MHz DDR4
 | 7a | `EDF7\plot_NOX_isoform.m` | plot the mRNA abundance of NOX isoform |
 | 7b | `EDF7\antioxidant.m` | plot the antiocidant activity |
 
+### Extended data figure 8
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 8c | `EDF8\plot_NOX_activity.m` | plot the NOX activity |
+| 8d and 8e | `EDF8\make_kymograph.m` | plot the kymographs |
