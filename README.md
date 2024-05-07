@@ -127,3 +127,10 @@ RAM: 32 GB 1800 MHz DDR4
 | 11a | `EDF11\light_intensity\plot_result.m` | plot the ROS steady states |
 | 11b to 11e | `EDF11\iron\plot_GSH.m` `EDF11\iron\quantify_iron.m` `EDF11\iron\plot_NOX_activity.m` `EDF11\iron\quantify_ros_before_photoinduction.m` `EDF11\iron\export_iron.ijm` | plot the measured GSH, iron, NOX activity, and ROS and export microscopic images |
 
+### Extended data figure 12
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 12a | `EDF12\developing_limb_muscle\script\export_fig.ijm` `EDF12\developing_limb_muscle\outline.m`| export the microscopic image and plot outlines |
+| 12b to 12e | `EDF12\coloc\script\export_12b.ijm` `EDF12\coloc\script\export_12c.ijm` `EDF12\coloc\script\export_12d.ijm` `EDF12\coloc\script\export_12e.ijm`| export the microscopic images |
+| 12f to 12h | `EDF12\tunel_4hne\script\export_fig.ijm` `EDF12\tunel_4hne\script\plot_profile_4hne.m` `EDF12\tunel_4hne\script\plot_profile_tunel.m` `EDF12\tunel_4hne\script\plot_result.m`| export the microscopic image and plot profiles and measured intensity |
+| 12i and 12j | `EDF12\fiber_quantification\plot_fiber_count.m` `EDF12\fiber_quantification\plot_entropy_histogram.m`| plot the measured fiber count ane entropy of fiber orientation |
