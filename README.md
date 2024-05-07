@@ -73,6 +73,7 @@ RAM: 32 GB 1800 MHz DDR4
 ### Extended data figure 3
 | Figure  | Scripts | Description |
 | :------------- | :------------- | :------------- |
+| 3b | `EDF3\light_induction\script\export.ijm` | export microscopic image |
 | 3c | `EDF3\h2o2_induction\script\export.ijm` `EDF3\h2o2_induction\script\outline_v2.m` | export microscopic image and plot outlines |
 | 3d | `EDF3\death_inhibitors\script\export_images_around_induction.ijm` `EDF3\death_inhibitors\script\export_dfo_fer1_lip1.ijm` | export micrscopic images around induction |
 | 3e to 3j | `EDF3\wavelength_exposure\export_images_around_induction.ijm` `EDF3\wavelength_exposure\summarize_intensity.m` `EDF3\wavelength_exposure\summarize_wavelength.m` | export micrscopic images around induction, plot ROS dynamics and speed measurement under different wavelength and exposure time of light |
