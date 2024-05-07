@@ -74,8 +74,14 @@ RAM: 32 GB 1800 MHz DDR4
 ### Extended data figure 3
 | Figure  | Scripts | Description |
 | :------------- | :------------- | :------------- |
-| 3b | `EDF2\initiation_analysis\script\mark_initiation.m` | export microscopic image |
 | 3c | `EDF3\h2o2_induction\script\export.ijm` `EDF3\h2o2_induction\script\outline_v2.m` | export microscopic image and plot outlines |
 | 3d | `EDF3\death_inhibitors\script\export_images_around_induction.ijm` `EDF3\death_inhibitors\script\export_dfo_fer1_lip1.ijm` | export micrscopic images around induction |
 | 3e to 3j | `EDF3\wavelength_exposure\export_images_around_induction.ijm` `EDF3\wavelength_exposure\summarize_intensity.m` `EDF3\wavelength_exposure\summarize_wavelength.m` | export micrscopic images around induction, plot ROS dynamics and speed measurement under different wavelength and exposure time of light |
 | 3k and 3l | `EDF3\death_inhibitors\script\make_kymograph.m` `EDF3\death_inhibitors\script\plot_kymograph_fer1.m` `EDF3\death_inhibitors\script\summarize_speed.m` | plot kymograph and speed measurement under different death inhibitors |
+
+### Extended data figure 4
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 4a | `EDF4\cellROX\script\export.ijm` `EDF4\cellROX\script\outline.m` `EDF4\cellROX\script\plot_profile.m` | export microscopic image, plot outlines, and plot profiles |
+| 4d | `EDF4\cellROX\script\make_kymograph.m` | plot the kymograph |
+| 4e | `EDF4\ros_scavengers\script\make_kymograph.m | plot the kymographs |
