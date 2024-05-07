@@ -114,3 +114,10 @@ RAM: 32 GB 1800 MHz DDR4
 | :------------- | :------------- | :------------- |
 | 9a | `EDF9\export_kymograph.m` | plot the kymographs |
 | 9b | `EDF9\summarize_speed.m` | plot the measured speed |
+
+### Extended data figure 10
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 10b and 10c | `EDF10\figS10bc.m` | plot the simulated wave in the view of 2D and cross-section |
+| 10d and 10e | `EDF10\figS10de.m` | plot the measured speed, wavefront width, and amplitude |
+
