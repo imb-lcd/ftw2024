@@ -108,3 +108,9 @@ RAM: 32 GB 1800 MHz DDR4
 | :------------- | :------------- | :------------- |
 | 8c | `EDF8\plot_NOX_activity.m` | plot the NOX activity |
 | 8d and 8e | `EDF8\make_kymograph.m` | plot the kymographs |
+
+### Extended data figure 9
+| Figure  | Scripts | Description |
+| :------------- | :------------- | :------------- |
+| 9a | `EDF9\export_kymograph.m` | plot the kymographs |
+| 9b | `EDF9\summarize_speed.m` | plot the measured speed |
