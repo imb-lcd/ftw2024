@@ -1,0 +1,13 @@
+function SS = calculate_steady_states(parameters)
+%CALCULATE_STEADY_STATES Summary of this function goes here
+%   Detailed explanation goes here
+syms f(x) kb kf kd kg k_nox n_nox k_gsh n_gsh s c
+f(x) = c-1*kd*x+kf*(x^n_nox/(x^n_nox+k_nox^n_nox))-...
+    x*(1/(1+s))*kg*(k_gsh^n_gsh/(x^n_gsh+k_gsh^n_gsh));
+fx = subs(f,{kf kd kg k_nox n_nox k_gsh n_gsh s c},...
+    {parameters.kf,parameters.kd,parameters.kg,...
+    parameters.KNOX,parameters.nNOX,parameters.KGSH,parameters.nGSH,...
+    parameters.S,parameters.c});
+SS = double(vpasolve(fx,x,[0 Inf]));
+end
+

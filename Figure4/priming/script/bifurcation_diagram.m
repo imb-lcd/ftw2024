@@ -1,52 +1,85 @@
-%     Copyright (C) 2024  Chia-Chou Wu
-%
-%     This program is free software: you can redistribute it and/or modify
-%     it under the terms of the GNU General Public License as published by
-%     the Free Software Foundation, either version 3 of the License, or
-%     (at your option) any later version.
-%
-%     This program is distributed in the hope that it will be useful,
-%     but WITHOUT ANY WARRANTY; without even the implied warranty of
-%     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-%     GNU General Public License for more details.
-%
-%     You should have received a copy of the GNU General Public License
-%     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 %% initialize environment
 clc; clear; close all
 
-load("..\data\bifurcation_diagram.mat")
+%% set parameters
+%%% input
+era = [0 0.15 0.3 0.6 1.25 2.5 5 10];
+s = 10.*era./(3+era);
+s = [s,3:0.05:9.9,0.003:0.001:3];
+s = unique(s);
 
-% bistability regime
-pgon = polyshape([stimulus2era([bp_left bp_right bp_right bp_left bp_left])],[-0.1 -0.1 6.1 6.1 -0.1]);
+%%% parameter of interest (gap of parameteres > 1e-4)
+para = [3 2 1]; name_para = "nNOX"; formal_name = "n_{positive_{fb}}";
 
-% steady state
-xx = [stimulus2era(x(~isnan(LSS)));flipud(stimulus2era(x(~isnan(USS))));stimulus2era(x(~isnan(HSS)))];
-yy = [LSS(~isnan(LSS));flipud(USS(~isnan(USS)));HSS(~isnan(HSS))];
+%%% all combinations of selected input strengths and parameters
+[S,Para] = meshgrid(s,para);
+LSS = nan(size(S));
+USS = LSS;
+HSS = LSS;
 
-% intersection points at erastin = 2.5uM
-[xB,yB] = polyxpoly(xx,yy,[2.5 2.5],[-0.1 5.1]);
+%%% original parameter setting
+% parameters = struct('D',D,'h',h,'kf',1.2,...
+%     'nNOX',3,'KNOX',1,'kg',1.5,'c',0.1,...
+%     'nGSH',3,'KGSH',2,'kd',0.26,'nI',0,'nCell',201,'tStart',0,...
+%     'tFinal',300,'delay',30,'kdd',0.5,'S',10*era(end)/(3+era(end)));
 
+%%% calculate steady states
+tic
+parfor i = 1:numel(LSS)
+    parameters = struct('kf',1.2,...
+    'nNOX',3,'KNOX',1,'kg',1.5,'c',0.1,...
+    'nGSH',3,'KGSH',2,'kd',0.26,'nI',0,'nCell',201,'tStart',0,...
+    'tFinal',300,'delay',30,'kdd',0.5,'S',S(i));
+    parameters.(name_para) = Para(i);
+
+    tmp = calculate_steady_states(parameters);
+    if ~isempty(tmp)
+    LSS(i) = min(tmp);    
+    HSS(i) = max(tmp);
+    USS(i) = tmp(min([length(tmp),2]));
+    end
+end
+toc
+
+% get number of steady state at each erastin and parameter setting
+nSS = 3.*ones(size(LSS));
+nSS((HSS-LSS)<1e-4) = 1;
+
+LSS(nSS==1&LSS>1) = nan;
+USS(nSS==1) = nan;
+HSS(nSS==1&LSS<1) = nan;
+
+E = 3.*S./(10-S);
+
+%% bifurcation diagram
 close all
-figure
-hold on
-plot(pgon,'EdgeColor','none','FaceColor',[240 217 65]/255,'FaceAlpha',0.2)
-plot(stimulus2era(x(~isnan(LSS))),LSS(~isnan(LSS)),'k','LineWidth',1)
-plot(stimulus2era(x(~isnan(USS))),USS(~isnan(USS)),'k--','LineWidth',1)
-plot(stimulus2era(x(~isnan(HSS))),HSS(~isnan(HSS)),'k','LineWidth',1)
-plot(xB(1),yB(1),'o','MarkerEdgeColor','k','MarkerFaceColor',[112 180 255]/255)
-plot(xB(2),yB(2),'o','MarkerEdgeColor','k','MarkerFaceColor','w')
-plot(xB(3),yB(3),'o','MarkerEdgeColor','k','MarkerFaceColor',[255 242 0]/255)
-hold off
-set(gca,'xscale','log','fontsize',16,'yscale','linear','layer','top','linewidth',1)
-xline(2.5,'k-')
+for ta = para
+    figure
 
-xticks([0.1 1 10 100])
-xlim([0.0459 100])
-ylim([-0.1 6.1])
-box on
-xlabel('Erastin (µM)')
-ylabel('ROS (A.U.)')
+    isUsed = abs(Para(:)-ta)<1e-4;
+    x = E(isUsed);
+    y = Para(isUsed);
+    z1 = LSS(isUsed);
+    z2 = USS(isUsed);
+    z3 = HSS(isUsed);
+    X = [x;flipud(x);x];
+    Y = [y;flipud(y);y];
+    Z = [z1;flipud(z2);z3];
+    isUsed = ~isnan(Z);
 
-box off
+    X = X(isUsed);
+    Y = Y(isUsed);
+    Z = Z(isUsed);
+    
+    p1 = plot3(X,Y,Z,'LineWidth',2,'Color',[(ta~=3) 0 0]);
+
+    set(gca,'XScale','log','View',[0 0],'ZScale','linear',...
+        'YScale','linear','FontSize',16,'LineWidth',1,'FontName','Arial','TickDir','out')
+    axis padded
+    zlim([-0.3 8])
+    xlim([0.007 500])
+    xlabel("Erastin (μM)")
+    zlabel("ROS steady state (A.U.)")
+    legend(formal_name+" = "+ta,'Location','best')
+    exportgraphics(gcf,name_para+".pdf","ContentType","vector","Append",(ta~=3))
+end
