@@ -1,7 +1,7 @@
 # Overview
 The customized scripts of the ferroptotic trigger wave analysis for image analysis, simulation, and plotting.
 
-The provided scripts are run in MATLAB_R2024a.  
+The provided scripts are run in MATLAB (R2023b).  
 OS: Windows 10  
 CPU: AMD Ryzen 9 5900X  
 RAM: 32 GB 1800 MHz DDR4
