@@ -1,1 +1,1 @@
-1. run `make_kymograph.m` to get the kymograph in the figure 4e
+1. run `make_kymograph.m` to get the kymograph in the figure 4e (`plotKymo.m` is called)
