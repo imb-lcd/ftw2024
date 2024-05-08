@@ -1,1 +1,1 @@
-1. run `export_ros_steadystate.ijm` to get the images in figure 3b
+1. run `export.ijm` to get the images in figure 3b
