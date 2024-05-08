@@ -7,6 +7,7 @@ CPU: AMD Ryzen 9 5900X
 RAM: 32 GB 1800 MHz DDR4
 
 ## Folder description
+The scripts we used to generate figures are listed here. More detailed instructions are included in the readme file in the folder.
 
 ### Figure1
 | Figure  | Scripts | Description |
