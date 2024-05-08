@@ -1,1 +1,1 @@
-1. run `plot_result.m` to get the figure 11a
+1. run `plot_result.m` to get the figure 11a based on after.mat, before.mat, result_h2o2.mat, and result_light.mats
